@@ -7,6 +7,7 @@ function ninagofur_setup() {
     $manifest = json_decode(file_get_contents('dist/assets.json', true));
     $main = $manifest->main;
 
+    wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
     wp_enqueue_style( 'theme-name-style', get_template_directory_uri() . $main->css, false, null ); 
 
     wp_enqueue_script("jquery");
@@ -14,7 +15,7 @@ function ninagofur_setup() {
 
     wp_enqueue_script('theme-name-js', get_template_directory_uri() . $main->js, ['jquery'], null, true);
 
-    wp_enqueue_script( 'home-animation', get_template_directory_uri() . '/js/sketch.js', array(), null, true );
+    // wp_enqueue_script( 'home-animation', get_template_directory_uri() . '/js/sketch.js', array(), null, true );
 
 
     register_nav_menu('header-menu', ( 'Nav Menu' ));

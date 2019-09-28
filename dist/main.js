@@ -88,6 +88,24 @@ $(document).ready(function () {
 
     let vh = window.innerHeight * .01;
     let vw = window.innerWidth * .01;
+
+    $('#see-work-button').on('click', () => window.scrollTo({
+
+        left: 400,
+        behavior: 'smooth'
+    }));
+
+    // function(e) {
+    //     console.log('click!!!');
+    //     $('.homepage').scrollTo({
+    //         left: 100,
+    //         behavior: 'smooth'
+    //     })
+
+    //     // $('.homepage').scrollLeft(600);
+    // });
+
+
     // console.log(vw);
 
 
