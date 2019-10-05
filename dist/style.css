@@ -43,13 +43,15 @@ p {
 /* NAV MENU */
 .nav-header {
   position: fixed;
-  opacity: 0;
-  right: calc(100vw - 100px);
+  opacity: 1;
+  right: 100vw;
   top: 0;
   bottom: 0;
   width: 100vw;
   background-color: white;
   z-index: 100; }
+  .nav-header > * {
+    opacity: 0; }
   .nav-header .menu-nav-menu-container {
     position: absolute;
     display: block;
@@ -80,7 +82,8 @@ p {
     bottom: 250px;
     right: -286px;
     transform: rotate(-90deg);
-    color: black; }
+    color: black;
+    cursor: default; }
 
 .hamburger-menu-container {
   /*
@@ -274,8 +277,9 @@ p {
 
 /* HOMEPAGE */
 .homepage {
+  background-color: black;
   height: 100%;
-  overflow-x: scroll;
+  overflow-x: hidden;
   overflow-y: hidden;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch; }
@@ -287,68 +291,96 @@ p {
     display: inline-block;
     background: black; }
     .homepage .homepage-main #defaultCanvas0 {
-      border: 1px solid white;
-      display: block; }
+      display: block;
+      position: fixed;
+      opacity: 1;
+      z-index: 1000; }
     .homepage .homepage-main #see-work-button {
-      position: absolute;
+      position: fixed;
       bottom: 50px;
       right: 50px;
       color: white;
-      text-decoration: none; }
-      .homepage .homepage-main #see-work-button:hover {
-        color: gray; }
+      text-decoration: none;
+      z-index: 10000;
+      cursor: default; }
   .homepage #works {
     height: 100vh;
-    width: calc(100vw - 86px);
+    width: calc(100vw - 100px);
+    left: 100px;
     position: relative;
     display: inline-block;
-    background: black; }
-    .homepage #works .page-title {
-      position: absolute;
-      top: 0px;
-      right: 100px;
-      height: 100px;
-      overflow: hidden;
-      white-space: nowrap; }
-      .homepage #works .page-title h1 {
-        display: inline-block; }
+    background-color: black;
+    padding: 40px 80px;
+    overflow-y: scroll; }
+    .homepage #works > * {
+      opacity: 0; }
     .homepage #works .works-container {
-      width: calc(100vw - 200px);
+      top: 150px;
+      width: calc(100vw - 260px);
       max-width: 1000px;
       margin: auto;
-      height: 100vh;
-      position: absolute;
-      left: 100px;
-      padding: 100px 100px; }
-      .homepage #works .works-container .wp-block-gallery {
+      overflow-x: hidden; }
+      .homepage #works .works-container .page-title {
+        position: relative;
+        height: 100px;
+        overflow: hidden;
+        white-space: nowrap; }
+        .homepage #works .works-container .page-title h1 {
+          display: inline-block; }
+      .homepage #works .works-container ul {
+        display: none; }
+      .homepage #works .works-container .works-gallery {
         display: block;
         width: 100%;
         justify-content: center; }
-        .homepage #works .works-container .wp-block-gallery .blocks-gallery-item {
+        .homepage #works .works-container .works-gallery .blocks-gallery-item {
           display: block;
-          width: 60%;
+          width: 100%;
+          height: 200px;
           margin: 20px auto; }
-          .homepage #works .works-container .wp-block-gallery .blocks-gallery-item figure figcaption {
+          .homepage #works .works-container .works-gallery .blocks-gallery-item figure figcaption {
             font-size: 2em;
             background: transparent;
             position: absolute;
             margin: 0;
+            padding: 0;
+            height: 1.4em;
             top: 50%;
             transform: translateY(-50%);
             left: 0;
-            right: 0; }
-  .homepage #cinematography {
+            right: 0;
+            cursor: pointer; }
+  .homepage .works-single {
     height: 100vh;
+    width: calc(100vw - 100px);
     left: 100vw;
     position: relative;
     display: inline-block;
-    background: white; }
-  .homepage #directorial-work-stills {
-    height: 100vh;
-    left: 100vw;
-    position: relative;
-    display: inline-block;
-    background: white; }
+    background-color: black;
+    padding: 40px 80px;
+    overflow-y: scroll; }
+    .homepage .works-single .works-single-container {
+      top: 150px;
+      width: calc(100vw - 260px);
+      max-width: 1000px;
+      margin: auto;
+      /* TEST- delete when done */ }
+      .homepage .works-single .works-single-container .page-title {
+        position: relative;
+        height: 100px;
+        overflow: hidden;
+        white-space: nowrap; }
+        .homepage .works-single .works-single-container .page-title h1 {
+          display: inline-block;
+          opacity: 1; }
+      .homepage .works-single .works-single-container .works-gallery {
+        display: none; }
+      .homepage .works-single .works-single-container .cinematography-gallery {
+        display: block; }
+        .homepage .works-single .works-single-container .cinematography-gallery .blocks-gallery-item {
+          display: none;
+          width: 33%;
+          margin: 16px 1px 0px; }
 
 /* PAGE */
 .page-container {

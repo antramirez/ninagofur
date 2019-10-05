@@ -11,11 +11,13 @@ function ninagofur_setup() {
     wp_enqueue_style( 'theme-name-style', get_template_directory_uri() . $main->css, false, null ); 
 
     wp_enqueue_script("jquery");
-    wp_enqueue_script( 'p5', 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js', array(), null, true );
+    
+    wp_enqueue_script( 'p5', 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js', array(), null, true );
+    wp_enqueue_script( 'p5-dom', 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js', array(), null, true );
 
     wp_enqueue_script('theme-name-js', get_template_directory_uri() . $main->js, ['jquery'], null, true);
 
-    // wp_enqueue_script( 'home-animation', get_template_directory_uri() . '/js/sketch.js', array(), null, true );
+    wp_enqueue_script( 'home-animation', get_template_directory_uri() . '/js/sketch.js', array(), null, true );
 
 
     register_nav_menu('header-menu', ( 'Nav Menu' ));

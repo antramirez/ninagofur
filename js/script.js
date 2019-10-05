@@ -17,25 +17,20 @@ $(document).ready(function() {
     let vw = window.innerWidth * .01;
 
 
-    $('#see-work-button').on('click', () => window.scrollTo({
+    $(window).on('resize', () => {
+        $('.nav-header').css('right', $(window).width() - 100);
+        // $('#works').animate({right:0}, 600);
 
-        left: 400,
-        behavior: 'smooth',
-    }));
-    
-    
-    
-    
-    
-    // function(e) {
-    //     console.log('click!!!');
-    //     $('.homepage').scrollTo({
-    //         left: 100,
-    //         behavior: 'smooth'
-    //     })
+        // if works-single is displayed, move it to the left upon resizing
         
-    //     // $('.homepage').scrollLeft(600);
-    // });
+        let cineLeft = $('.works-single').css('left').split('').reverse().join('').substring(2).split('').reverse().join('');
+
+        if (cineLeft < 0) {
+            $('.works-single').css('left', -$(window).width() + 200);
+            console.log('heyo');
+            
+        }
+    });
 
 
     
@@ -46,11 +41,7 @@ $(document).ready(function() {
 
     // document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-    $(window).on('resize', () => {
-        // We execute the same script as before
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-    });
+
 
 
 
@@ -108,6 +99,44 @@ $(document).ready(function() {
         fullScreen = !fullScreen;
         // toggle hamburger menu
         $(this).toggleClass('menu-clicked');
+    });
+
+
+
+
+    /* Works page */
+
+    $('.works-gallery .blocks-gallery-item').on('click', function() {
+        
+        console.log($(window).width());
+
+
+        var worksTitle = this.firstElementChild.innerText;
+        $('.works-single #works-title').text(worksTitle)
+        
+        // slide left
+        $('#works')
+            .animate({left: -$(window).width()}, 600);
+        $('.works-single').animate({left: -$(window).width() + 196}, 600, function() {
+            
+            
+            $('.works-single #works-title').animate({'opacity': 1}, 300, function() {
+                let idx = 0;
+                // show 3 images for each work type
+
+                let cinemaProjs = $('.works-single .cinematography-gallery');
+
+                
+                [...cinemaProjs].forEach((gal) => {
+                    $($(gal).children()[0]).css('display', 'inline-block');
+                    $($(gal).children()[1]).css('display', 'inline-block');
+                    $($(gal).children()[2]).css('display', 'inline-block');
+                });
+                // [].forEach.call(cinemaProjs, (e) => {
+                //     console.log(e);
+                // });
+            });
+        });
     });
 });
 
