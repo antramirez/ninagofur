@@ -16,16 +16,17 @@
 
 
 <header class="nav-header">
-<div class="hamburger-menu-container">
+<!-- <div class="hamburger-menu-container">
     <div class="hamburger-menu-bar"></div>
     <div class="hamburger-menu-bar"></div>
     <div class="hamburger-menu-bar"></div>
-  </div>
+  </div> -->
+  <!-- <h1>NINA GOFUR</h1> -->
 <?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
 
   
 
-  <h1>NINA GOFUR</h1>
+  <!-- <h1>NINA GOFUR</h1> -->
 
 
 </header>
