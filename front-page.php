@@ -15,9 +15,9 @@ get_header(); ?>
 		
 		<div id="works">
 			<div class="works-container">
-				<div class="page-title">
+				<!-- <div class="page-title">
 					<h1 >NINA GOFUR</h1>
-				</div>
+				</div> -->
 					<?php
 					while ( have_posts() ) :
 						the_post();

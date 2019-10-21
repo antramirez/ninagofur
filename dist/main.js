@@ -79,7 +79,11 @@ var $ = jQuery.noConflict();
 $(document).ready(function () {
 
     if (!$('body').hasClass('home')) {
+        console.log('hello there');
+
         $('.nav-header').animate({ opacity: 1 }, 600);
+    } else {
+        console.log('wait what');
     }
 
     let vh = window.innerHeight * .01;
@@ -129,52 +133,66 @@ $(document).ready(function () {
 
     /* Works page */
     $(function () {
-        // determine which project clicked
-        let typeOfProjs;
 
-        let worksTitle = document.querySelector('.page-title').firstElementChild.innerText;
-        if (worksTitle === 'Cinematography') {
-            typeOfProjs = $('.cinematography-gallery');
-        } else if (worksTitle === 'Directorial Work Stills') {
-            typeOfProjs = $('.directorial-gallery');
-        } else {
-            return;
-        }
+        if (document.querySelector('.page-title')) {
+            // determine which project clicked
+            let typeOfProjs;
 
-        // TODO: photography
-        // else {
-        // pictures
-        // }
+            let worksTitle = document.querySelector('.page-title').firstElementChild.innerText;
+            if (worksTitle === 'Cinematography') {
+                typeOfProjs = $('.cinematography-gallery');
+            } else if (worksTitle === 'Directorial Work Stills') {
+                typeOfProjs = $('.directorial-gallery');
+            } else {
+                return;
+            }
+
+            // TODO: photography
+            // else {
+            // pictures
+            // }
 
 
-        // show 3 images for each work type        
-        $(typeOfProjs).animate({ 'opacity': 1 }, 2500);
+            // show 3 images for each work type        
+            $(typeOfProjs).animate({ 'opacity': 1 }, 2500);
 
-        [...typeOfProjs].forEach(gal => {
-            $($(gal).children()[0]).css('display', 'inline-block');
-            $($(gal).children()[1]).css('display', 'inline-block');
-            $($(gal).children()[2]).css('display', 'inline-block');
-            // project info
-            $(gal).next().animate({ 'opacity': 1 }, 2000);
+            [...typeOfProjs].forEach(gal => {
+                $($(gal).children()[0]).css('display', 'inline-block');
+                $($(gal).children()[1]).css('display', 'inline-block');
+                $($(gal).children()[2]).css('display', 'inline-block');
+                // project info
+                $(gal).next().animate({ 'opacity': 1 }, 2000);
 
-            // // show full gallery upon clicking the row 
-            $(gal).on('click', function () {
+                // // show full gallery upon clicking the row 
+                $(gal).on('click', function () {
 
-                [...$(this).children()].forEach(e => {
-                    $('.gallery-thumbnails-container').append(e);
-                    console.log(e);
+                    [...$(this).children()].forEach(e => {
+                        $('.gallery-thumbnails-container').append(e);
+                        console.log(e);
+                    });
+
+                    $('.full-image-overlay-container').css('display', 'flex');
+
+                    // set current full image
+                    $('.image-container img').attr("src", 'http://localhost:3000/ninagofur/wp-content/uploads/2019/10/A013C018_190412_R5BL.mov.02_19_02_08-1024x576.jpg');
                 });
-
-                $('.full-image-overlay-container').css('display', 'flex');
-
-                // set current full image
-                $('.image-container img').attr("src", 'http://localhost:3000/ninagofur/wp-content/uploads/2019/10/A013C018_190412_R5BL.mov.02_19_02_08-1024x576.jpg');
             });
-        });
 
-        $('.close-img-container-button').on('click', function () {
-            $('.full-image-overlay-container').css('display', 'none');
-        });
+            $('.close-img-container-button').on('click', function () {
+                $('.full-image-overlay-container').css('display', 'none');
+            });
+        }
+    });
+
+    /* FORM */
+    $('input').focus(function () {
+        $(this).animate({ 'top': 6 }, 300);
+        $(this).prev().animate({ 'top': 4, 'font-size': 16, 'color': 'black' }, 300);
+    });
+    $('textarea').focus(function () {
+        $(this).animate({ 'top': 6 }, 300);
+        $('.wpforms-submit-container').animate({ 'top': 6 }, 300);
+        $(this).prev().animate({ 'top': 4, 'font-size': 16, 'color': 'black' }, 300);
     });
 });
 

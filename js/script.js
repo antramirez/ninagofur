@@ -3,7 +3,13 @@ var $ = jQuery.noConflict();
 $(document).ready(function() {
 
     if (!($('body').hasClass('home'))) { 
+        console.log('hello there');
+        
         $('.nav-header').animate({opacity: 1}, 600);
+    }
+    else {
+        console.log('wait what');
+        
     }
     
     let vh = window.innerHeight * .01;
@@ -61,7 +67,9 @@ $(document).ready(function() {
 
     /* Works page */
     $(function() {
-        // determine which project clicked
+
+        if (document.querySelector('.page-title')) {
+            // determine which project clicked
         let typeOfProjs;
         
         let worksTitle = document.querySelector('.page-title').firstElementChild.innerText;
@@ -118,8 +126,22 @@ $(document).ready(function() {
         $('.close-img-container-button').on('click', function() {
             $('.full-image-overlay-container').css('display', 'none');
         });
+        }
+        
     });
+    
 
+
+    /* FORM */
+    $('input').focus(function() {
+        $(this).animate({'top': 6}, 300);
+        $(this).prev().animate({'top': 4, 'font-size': 16, 'color': 'black'}, 300);        
+    })
+    $('textarea').focus(function() {
+        $(this).animate({'top': 6}, 300);
+        $('.wpforms-submit-container').animate({'top': 6}, 300);
+        $(this).prev().animate({'top': 4, 'font-size': 16, 'color': 'black'}, 300);        
+    })
 
 });
 
