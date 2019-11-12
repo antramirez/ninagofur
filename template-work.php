@@ -10,10 +10,7 @@ get_header();
 
 		<div class="image-description">
 			<h2><?php the_title(); ?></h2>
-			<p>more info</p>
-			<p>more info</p>
-			<p>more info</p>
-			<p>more info</p>
+
 		</div>
 
 		<div class="full-image-container">
@@ -27,3 +24,4 @@ get_header();
 <?php
 // get_sidebar();
 get_footer();
+?>

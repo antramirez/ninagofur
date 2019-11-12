@@ -45,17 +45,25 @@ $(document).ready(function() {
     $('.hamburger-menu-container').on('click', function(evt) {
 
         // animate header to fill page
-        let rightPx = offSet + 'px';
-        if (fullScreen) {
-            $(this).parent().animate({ 
-                right: rightPx
-            }, 600);
-        }
-        else {
-            $(this).parent().animate({
-                right: '0vw'
-            }, 600);
-        }
+        // let rightPx = offSet + 'px';
+        // if (fullScreen) {
+        //     $(this).parent().animate({ 
+        //         right: rightPx
+        //     }, 600);
+        // }
+        // else {
+        //     $(this).parent().animate({
+        //         right: '0vw'
+        //     }, 600);
+        // }
+
+        // if (fullScreen) {
+            $('.menu-nav-menu-container').toggleClass('menu-nav-menu-container-mobile');
+        // }
+
+        // $('.menu-nav-menu-container').css('width', 'calc(100vw');
+        // $('.menu-nav-menu-container').css('height', 'calc(100vh - 70px');
+
 
         fullScreen = !fullScreen;
         // toggle hamburger menu
@@ -70,64 +78,44 @@ $(document).ready(function() {
 
         if (document.querySelector('.page-title')) {
             // determine which project clicked
-        let typeOfProjs;
-        
-        let worksTitle = document.querySelector('.page-title').firstElementChild.innerText;
-        if (worksTitle === 'Cinematography') {
-            typeOfProjs = $('.cinematography-gallery');
-        }
-        else if (worksTitle === 'Directorial Work Stills') {
-            typeOfProjs = $('.directorial-gallery');
-        }
-        else {
-            return;
-        }
+            let typeOfProjs;
+            
+            let worksTitle = document.querySelector('.page-title').firstElementChild.innerText;
+            if (worksTitle === 'Cinematography') {
+                typeOfProjs = $('.cinematography-gallery');
+            }
+            else if (worksTitle === 'Directorial Work Stills') {
+                typeOfProjs = $('.directorial-gallery');
+            }
+            else {
+                return;
+            }
 
-        // TODO: photography
-        // else {
-            // pictures
-        // }
-        
+            // TODO: photography
+            // else {
+                // pictures
+            // }
+            
 
-        // show 3 images for each work type        
-        $(typeOfProjs).animate({'opacity': 1}, 2500);
-        
-        [...typeOfProjs].forEach((gal) => {
-            $($(gal).children()[0])
-                .css('display', 'inline-block');
-            $($(gal).children()[1])
-                .css('display', 'inline-block');
-            $($(gal).children()[2])
-                .css('display', 'inline-block');
-            // project info
-            $(gal).next().animate({'opacity': 1}, 2000);
-
-
-            // // show full gallery upon clicking the row 
-            $(gal).on('click', function() {
-
-                [...$(this).children()].forEach((e) => {
-                    $('.gallery-thumbnails-container').append(e)
-                    console.log(e);
-                    
-                });
-
-                $('.full-image-overlay-container').css('display', 'flex');
-
-                // set current full image
-                $('.image-container img').attr("src", 'http://localhost:3000/ninagofur/wp-content/uploads/2019/10/A013C018_190412_R5BL.mov.02_19_02_08-1024x576.jpg')
-
-                
+            // set hyperlinks for each project        
+            $(typeOfProjs).animate({'opacity': 1}, 2500);
+            [...typeOfProjs].forEach((proj) => {
+                var ref = $(proj.firstElementChild.firstElementChild.children[1].firstElementChild).attr('href');
+                $(proj).wrap(`<a href="${ref}"></a>`)
             });
+            
 
-
-        });
-
-        $('.close-img-container-button').on('click', function() {
-            $('.full-image-overlay-container').css('display', 'none');
-        });
+            $('.close-img-container-button').on('click', function() {
+                $('.full-image-overlay-container').css('display', 'none');
+            });
         }
+    });
+
+
+    $(function() {
+        console.log('hi');
         
+        $('.image-description').append($('.full-image-container p'));
     });
     
 

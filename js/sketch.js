@@ -172,14 +172,6 @@ function draw() {
                 statusWidth = 0;
             }
         }
-    
-        // noStroke();
-        // rectMode(LEFT);
-        // fill(150);
-        // rect(0, windowHeight - 10, windowWidth, windowHeight);
-        // fill(255);
-        // rectMode(LEFT);
-        // rect(0, windowHeight - 10, statusWidth, 10);
     }
 
     /* COMMENT START
