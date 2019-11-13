@@ -9,9 +9,9 @@
 get_header(); ?>
 
 	<div id="primary" class="homepage">
-		<main id="main" class="homepage-main" role="main">
+		<!-- <main id="main" class="homepage-main" role="main">
 			<p id="see-work-button"> click to enter site</p>
-		</main>
+		</main> -->
 		
 		<div id="works">
 			<div class="works-container">
