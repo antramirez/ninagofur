@@ -82,11 +82,28 @@ $(document).ready(function () {
         console.log('hello there');
 
         $('.nav-header').animate({ opacity: 1 }, 600);
+
+        console.log($('.iframe'));
     } else {
         console.log('wait what');
-        $('.nav-header').animate({ opacity: 1 }, 600);
+        // $('.nav-header').animate({opacity: 1}, 600);
 
         $('#works > *').animate({ 'opacity': 1 }, 2000);
+
+        $('video').on('hover', function () {
+            this.play();
+        });
+    }
+
+    var pathArray = window.location.pathname.split('/');
+    var slug = pathArray[pathArray.length - 2];
+    if (slug === 'about') {
+        $('.page-title h1').css('color', '#ffcf49');
+        $('.page-title h1').css('padding-left', '6px');
+    } else if (slug === 'contact') {
+        $('.page-title h1').css('color', '#4b49ff');
+    } else {
+        $('.page-title h1').css('color', '#ff4949');
     }
 
     let vh = window.innerHeight * .01;
@@ -107,6 +124,38 @@ $(document).ready(function () {
     //     }
     // });
 
+    // var pos = 0;
+    // $(window).bind('mousewheel DOMMouse Scroll', function(event) {
+    //     if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+    //         pos += 20;
+    //     } else {
+    //         // if (pos >= 0) {
+    //             pos -= 20;
+    //         // }
+    //         // else {
+    //         //     console.log('NO MORE');
+
+    //         // }
+    //     }
+    //     console.log(pos);
+
+    //     $('.photography-container').scrollLeft(-pos);
+
+    //     if (pos <= (-vw * 100)) {
+    //         console.log('DONE!!!');
+    //         $('.nav-header').animate({opacity: 1}, 1000);
+    //         $('.homepage-main').css('visibility', 'hidden');
+    //     }
+    //     else {
+    //         $('.homepage').scrollLeft(-pos);
+    //     }
+    // });
+
+
+    $('photography-container .wp-block-gallery').on('scroll', function (e) {
+        console.log(window.scrollY);
+        console.log('hello!');
+    });
 
     // console.log(vw);
     // document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -118,22 +167,6 @@ $(document).ready(function () {
 
     var height = $(window).height();
     $('.hamburger-menu-container').on('click', function (evt) {
-
-        // animate header to fill page
-        // let rightPx = offSet + 'px';
-        // if (fullScreen) {
-        //     $(this).parent().animate({ 
-        //         right: rightPx
-        //     }, 600);
-        // }
-        // else {
-        //     $(this).parent().animate({
-        //         right: '0vw'
-        //     }, 600);
-        // }
-
-        // if (fullScreen) {
-        // $('.menu-nav-menu-container').toggleClass('menu-nav-menu-container-mobile', fullScreen);
 
         if (!fullScreen) {
             $('.menu-nav-menu-container').addClass('menu-nav-menu-container-mobile');
@@ -147,13 +180,9 @@ $(document).ready(function () {
             console.log('not full screen');
         }
         fullScreen != fullScreen;
-        // }
-
-        // $('.menu-nav-menu-container').css('width', 'calc(100vw');
-        // $('.menu-nav-menu-container').css('height', 'calc(100vh - 70px');
-
 
         fullScreen = !fullScreen;
+
         // toggle hamburger menu
         $(this).toggleClass('menu-clicked');
     });
@@ -168,8 +197,10 @@ $(document).ready(function () {
             let worksTitle = document.querySelector('.page-title').firstElementChild.innerText;
             if (worksTitle === 'Cinematography') {
                 typeOfProjs = $('.cinematography-gallery');
-            } else if (worksTitle === 'Directorial Work Stills') {
+                console.log('cine');
+            } else if (worksTitle === 'Directing') {
                 typeOfProjs = $('.directorial-gallery');
+                console.log('dir');
             } else {
                 return;
             }
@@ -180,10 +211,11 @@ $(document).ready(function () {
             // }
 
 
-            // set hyperlinks for each project        
+            // set hyperlinks for each project
             $(typeOfProjs).animate({ 'opacity': 1 }, 2500);
             [...typeOfProjs].forEach(proj => {
-                var ref = $(proj.firstElementChild.firstElementChild.children[1].firstElementChild).attr('href');
+                var ref = $(proj.firstElementChild.firstElementChild.firstElementChild.children[1].firstElementChild).attr('href');
+                // var ref = $(proj.firstElementChild.firstElementChild.children[1].firstElementChild).attr('href');
                 $(proj).wrap(`<a href="${ref}"></a>`);
             });
 
@@ -191,6 +223,27 @@ $(document).ready(function () {
                 $('.full-image-overlay-container').css('display', 'none');
             });
         }
+    });
+
+    $(function () {
+        var coverInner = $('.full-images-container .wp-block-cover .wp-block-cover__inner-container');
+
+        var liDest = $('.full-images-container .wp-block-gallery .blocks-gallery-grid .blocks-gallery-item')[0];
+        if (liDest) {
+            $(liDest.firstElementChild).append(coverInner);
+            console.log(liDest.firstElementChild);
+        }
+    });
+
+    /* set links to photo series */
+    $(function () {
+
+        var photoSeries = $('.photography-container figure .blocks-gallery-grid').children();
+        [...photoSeries].forEach(series => {
+            console.log(series);
+            var ref = $(series.firstElementChild.lastElementChild.firstElementChild).attr('href');
+            $(series).wrap(`<a href="${ref}"></a>`);
+        });
     });
 
     $(function () {
