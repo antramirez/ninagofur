@@ -4,7 +4,7 @@ $(document).ready(function() {
 
     if (!($('body').hasClass('home'))) {
 
-        // $('.nav-header').animate({opacity: 1}, 600);
+        $('.nav-header').animate({opacity: 1}, 600);
 
     }
     else {
