@@ -555,14 +555,16 @@ p {
         color: white;
         font-size: 8em;
         padding: 4px;
+        margin-bottom: 20px;
         cursor: default;
       }
 
       a {
+        marigin-top: 50px;
         display: block;
         text-decoration: none;
         font-size: 1.8em;
-        text-align: right;
+        text-align: center;
         color: white;
 
         transition: all .3s ease-in-out .1s;

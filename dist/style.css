@@ -346,12 +346,14 @@ p {
       color: white;
       font-size: 8em;
       padding: 4px;
+      margin-bottom: 20px;
       cursor: default; }
     .homepage .home-center-text a {
+      marigin-top: 50px;
       display: block;
       text-decoration: none;
       font-size: 1.8em;
-      text-align: right;
+      text-align: center;
       color: white;
       transition: all .3s ease-in-out .1s;
       -webkit-transition: all .3s ease-in-out .1s;
