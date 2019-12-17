@@ -10,7 +10,7 @@ html {
 
 @font-face {
     font-family: Funkford Regular;
-    src: url(//localhost:3000/ninagofur/wp-content/themes/ninagofur/fonts/Funkford-Regular.otf);
+    src: url("/fonts/Funkford-Regular.otf");
     font-weight: normal;
 }
 
@@ -1231,12 +1231,9 @@ p {
 
             &:nth-last-of-type(1) {
                 padding-right: 0px !important;
+                margin-right: 0px !important;
             }
-
         }
-
-
-
     }
 }
 

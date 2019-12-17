@@ -87,17 +87,17 @@ $(document).ready(function() {
             let typeOfProjs;
 
             let worksTitle = document.querySelector('.page-title').firstElementChild.innerText;
-            if (worksTitle === 'Cinematography') {
+            console.log(worksTitle);
+            if (worksTitle === 'CINEMATOGRAPHY') {
                 typeOfProjs = $('.cinematography-gallery');
                 console.log('cine');
-
             }
-            else if (worksTitle === 'Directing') {
+            else if (worksTitle === 'DIRECTING') {
                 typeOfProjs = $('.directorial-gallery');
                 console.log('dir');
-
             }
             else {
+              console.log('none');
                 return;
             }
 
