@@ -7,6 +7,11 @@ function ninagofur_setup() {
     $manifest = json_decode(file_get_contents('dist/assets.json', true));
     $main = $manifest->main;
 
+    // TODO: add font
+    // <link rel="stylesheet" href="https://use.typekit.net/lic3zmy.css">
+
+    wp_enqueue_style('typekit-serif', 'https://use.typekit.net/fdd0oul.css');
+    wp_enqueue_style('typekit', 'https://use.typekit.net/lic3zmy.css');
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400|Lato:100,300,400&display=swap');
     wp_enqueue_style( 'theme-name-style', get_template_directory_uri() . $main->css, false, null );
 
@@ -29,6 +34,7 @@ function ninagofur_setup() {
 
 add_action('wp_enqueue_scripts', 'ninagofur_setup');
 
+add_filter('jpeg_quality', function($arg){return 100;});
 
 function ninagofur_init() {
   add_theme_support('post-thumbnails');

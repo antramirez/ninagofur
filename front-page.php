@@ -9,10 +9,10 @@
 get_header(); ?>
 
 	<div id="primary" class="homepage">
-		
+
 		<div class="home-center-text">
 			<h1>NINA GOFUR</h1>
-			<a href="./work">enter site</a>
+			<a href="./directing">enter</a>
 		</div>
 
 		<div class="wp-block-video">
