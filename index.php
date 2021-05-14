@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * @package ryanslowe
- * @subpackage ryanslowe
- * @since ryanslowe 1.0
+ * @package ninagofur
+ * @subpackage ninagofur
+ * @since ninagofur 1.0
  */
 
 get_header(); ?>

@@ -1,5 +1,3 @@
-node_modules
-gulpfile.js
-webpack.config.js
-uploads
-fonts
+/node_modules
+/uploads
+/fonts/*.woff

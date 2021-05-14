@@ -16,7 +16,7 @@ get_header(); ?>
 		</div>
 
 		<div class="wp-block-video">
-			<video loop muted src="http://localhost:8888/ninagofur/wp-content/uploads/2019/12/Their-Kingdom-Far-Away.mp4" playsinline></video>
+			<video autoplay loop muted src="https://ninagofur.com/wp-content/uploads/2020/03/Their-Kingdom_1.mov" playsinline></video>
 		</div>
 
 			<?php

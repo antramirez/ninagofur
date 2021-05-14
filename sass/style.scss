@@ -11,24 +11,6 @@ html {
     // overflow-y: hidden;
 }
 
-@font-face {
-    font-family: Funkford Regular;
-    src: url("../fonts/Funkford-Regular.otf");
-    font-weight: normal;
-}
-
-@font-face {
-  font-family: birch-std, serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: starling, serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
 *,
 *:before,
 *:after {
@@ -64,7 +46,7 @@ p {
 
 .nav-header {
     height: 70px;
-    padding: 10px 40px;
+    padding: 15px 40px;
     // position: fixed;
     top: 0;
     left: 0;
@@ -83,7 +65,7 @@ p {
         font-size: 3em;
         font-weight: 100;
         width: 30%;
-        padding-top: 4px;
+        padding-top: 14px;
         // font-family: "Funkford Regular";
         margin-top: -16px;
         z-index: 100;
@@ -201,11 +183,7 @@ p {
                 }
             }
 
-            .current-menu-item a {
-                // font-weight: 400;
-                // color: #ccc !important;
-                // color: #ff60eb;
-            }
+
         }
 
         /* NAV HEADER - mobile */
@@ -607,10 +585,14 @@ p {
         padding: 4px;
         margin-bottom: 20px;
         cursor: default;
+
+        @media screen and (max-width: 620px) {
+            font-size: 6em;
+        }
       }
 
       a {
-        marigin-top: 50px;
+        margin-top: 50px;
         display: block;
         text-decoration: none;
         font-size: 1.8em;
@@ -1454,9 +1436,6 @@ p {
 
 
 
-}
-.supsystic-slider-wrapper {
-    // display:none;
 }
 
 
